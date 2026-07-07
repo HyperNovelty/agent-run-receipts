@@ -38,6 +38,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests
 
 Open `START_HERE.html` for a simple local overview.
 
+Before sharing a receipt outside the trusted workspace, use `docs/publish-safety-reviewer-checklist.md`.
+
 ## Receipt Shape
 
 Receipts are JSON objects with these required fields:
@@ -61,6 +63,8 @@ The `boundaries`, `changed_files`, and `verification` fields are arrays. `public
 This is not a compliance product, legal advice, a policy engine, or an authorization mechanism by itself. It does not prove that a task was safe, complete, lawful, or approved. It does not collect secrets, private traces, prompts, account data, or credentials.
 
 Use synthetic examples in public materials. Keep private workspace paths, internal customer data, proprietary traces, and security-sensitive details out of receipts intended for sharing.
+
+For a practical publication review pass, see `docs/publish-safety-reviewer-checklist.md`.
 
 ## Local-Only Boundary
 
