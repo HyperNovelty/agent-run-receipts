@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Synthetic Documentation Update</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.5; margin: 2rem; color: #1f2933; }
+    main { max-width: 860px; }
+    section { border-top: 1px solid #d9e2ec; padding-top: 1rem; margin-top: 1rem; }
+    .boundary-status { border: 2px solid #52606d; border-left-width: 8px; padding: 1rem; background: #f5f7fa; }
+    .label { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Synthetic Documentation Update</h1>
+    <p><span class="label">Receipt ID:</span> arr-2026-001</p>
+    <p><span class="label">Date:</span> 2026-07-06</p>
+    <p><span class="label">Agent type:</span> local coding agent</p>
+
+    <section class="boundary-status">
+      <h2>Boundary and Status</h2>
+      <p><span class="label">Human gate:</span> pending</p>
+      <p><span class="label">Approval note:</span> </p>
+      <p><span class="label">Public action taken:</span> no</p>
+      <h3>Boundaries</h3>
+      <ul><li>Local-only work; no publishing, deployment, account tools, or external API calls.</li><li>No secrets, credentials, private traces, or proprietary internals included.</li><li>Synthetic example content only.</li></ul>
+    </section>
+
+    <section>
+      <h2>Task Summary</h2>
+      <p>Created a small local documentation starter with a validator, renderer, tests, and synthetic example data.</p>
+    </section>
+
+    <section>
+      <h2>Changed Files</h2>
+      <ul><li>README.md</li><li>schemas/agent-run-receipt.schema.json</li><li>scripts/validate_receipt.py</li><li>scripts/render_receipt_html.py</li><li>examples/agent-run-receipt.example.json</li><li>tests/test_validate_receipt.py</li><li>tests/test_render_receipt_html.py</li></ul>
+    </section>
+
+    <section>
+      <h2>Verification</h2>
+      <ul><li>python3 scripts/validate_receipt.py examples/agent-run-receipt.example.json</li><li>python3 scripts/render_receipt_html.py examples/agent-run-receipt.example.json examples/rendered/agent-run-receipt.example.html</li><li>python3 -m unittest discover -s tests</li></ul>
+    </section>
+
+    <section>
+      <h2>Notes</h2>
+      <p>This example is synthetic and intended for local demonstration only.</p>
+    </section>
+  </main>
+</body>
+</html>

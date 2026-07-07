@@ -21,13 +21,19 @@ This repo is intentionally small so it can be copied into local workflows, adapt
 Validate the synthetic example:
 
 ```bash
-python3 scripts/validate_receipt.py examples/agent-run-receipt.example.json
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_receipt.py examples/agent-run-receipt.example.json
 ```
 
-Render it to a local HTML file:
+Render it to a checked-in demo HTML file:
 
 ```bash
-python3 scripts/render_receipt_html.py examples/agent-run-receipt.example.json /tmp/agent-run-receipt-example.html
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/render_receipt_html.py examples/agent-run-receipt.example.json examples/rendered/agent-run-receipt.example.html
+```
+
+Run tests:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests
 ```
 
 Open `START_HERE.html` for a simple local overview.
@@ -60,3 +66,6 @@ Use synthetic examples in public materials. Keep private workspace paths, intern
 
 The scripts use Python standard library only. They do not call external APIs, create accounts, publish files, deploy services, or transmit receipt contents. Any sharing decision must happen outside this repo and should require explicit human review.
 
+## Open Lab Fit
+
+This repo is part of the Hypernovelty Open Lab public proof footprint. See `docs/open-lab-positioning.md` for how receipts relate to the umbrella kit, workflow screens, source cards, verification literacy labs, and school readiness review.

@@ -15,8 +15,7 @@ Before proposing a change, run:
 
 ```bash
 python3 scripts/validate_receipt.py examples/agent-run-receipt.example.json
-python3 scripts/render_receipt_html.py examples/agent-run-receipt.example.json /tmp/agent-run-receipt-example.html
+python3 scripts/render_receipt_html.py examples/agent-run-receipt.example.json examples/rendered/agent-run-receipt.example.html
 python3 -m unittest discover -s tests
 git diff --check
 ```
-
