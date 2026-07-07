@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Run Receipts</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.5; margin: 2rem; color: #1f2933; }
+    main { max-width: 760px; }
+    code { background: #eef2f7; padding: 0.1rem 0.3rem; border-radius: 4px; }
+    .status { border: 1px solid #9aa5b1; border-left: 5px solid #3e4c59; padding: 1rem; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Agent Run Receipts</h1>
+    <p>A local receipt records what an AI or coding agent was asked to do, what boundaries applied, what changed, what verification ran, and whether a human gate remains.</p>
+    <section class="status">
+      <h2>Public-Safety Boundary</h2>
+      <p>This starter does not authorize public action. It does not provide legal advice, compliance certification, secret scanning, or private trace storage.</p>
+    </section>
+    <h2>Try It Locally</h2>
+    <p>Validate the example with <code>python3 scripts/validate_receipt.py examples/agent-run-receipt.example.json</code>.</p>
+    <p>Render HTML with <code>python3 scripts/render_receipt_html.py examples/agent-run-receipt.example.json /tmp/agent-run-receipt-example.html</code>.</p>
+  </main>
+</body>
+</html>
+

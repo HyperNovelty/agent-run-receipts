@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/agent-run-receipt.schema.json",
+  "title": "Agent Run Receipt",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "receipt_id",
+    "title",
+    "date",
+    "agent_type",
+    "task_summary",
+    "boundaries",
+    "changed_files",
+    "verification",
+    "human_gate",
+    "public_action_taken",
+    "notes"
+  ],
+  "properties": {
+    "receipt_id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "date": { "type": "string", "minLength": 1 },
+    "agent_type": { "type": "string", "minLength": 1 },
+    "task_summary": { "type": "string", "minLength": 1 },
+    "boundaries": { "type": "array", "items": { "type": "string" } },
+    "changed_files": { "type": "array", "items": { "type": "string" } },
+    "verification": { "type": "array", "items": { "type": "string" } },
+    "human_gate": {
+      "type": "object",
+      "required": ["status", "approval_note"],
+      "properties": {
+        "status": { "type": "string" },
+        "approval_note": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "public_action_taken": { "type": "boolean" },
+    "notes": { "type": "string" }
+  }
+}
+

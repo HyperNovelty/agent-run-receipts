@@ -1,0 +1,33 @@
+{
+  "receipt_id": "arr-2026-001",
+  "title": "Synthetic Documentation Update",
+  "date": "2026-07-06",
+  "agent_type": "local coding agent",
+  "task_summary": "Created a small local documentation starter with a validator, renderer, tests, and synthetic example data.",
+  "boundaries": [
+    "Local-only work; no publishing, deployment, account tools, or external API calls.",
+    "No secrets, credentials, private traces, or proprietary internals included.",
+    "Synthetic example content only."
+  ],
+  "changed_files": [
+    "README.md",
+    "schemas/agent-run-receipt.schema.json",
+    "scripts/validate_receipt.py",
+    "scripts/render_receipt_html.py",
+    "examples/agent-run-receipt.example.json",
+    "tests/test_validate_receipt.py",
+    "tests/test_render_receipt_html.py"
+  ],
+  "verification": [
+    "python3 scripts/validate_receipt.py examples/agent-run-receipt.example.json",
+    "python3 scripts/render_receipt_html.py examples/agent-run-receipt.example.json /tmp/agent-run-receipt-example.html",
+    "python3 -m unittest discover -s tests"
+  ],
+  "human_gate": {
+    "status": "pending",
+    "approval_note": ""
+  },
+  "public_action_taken": false,
+  "notes": "This example is synthetic and intended for local demonstration only."
+}
+
