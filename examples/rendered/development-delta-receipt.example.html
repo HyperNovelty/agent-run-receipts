@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Synthetic Documentation Update</title>
+  <title>Synthetic Development Delta Receipt</title>
   <style>
     :root { color-scheme: dark; --ink: #f7ead7; --muted: #d7c2a2; --paper: #fff7e8; --paper-ink: #261b12; --line: #6f5840; --accent: #f2b66d; --warn: #ffd08a; --panel: #352417; }
     * { box-sizing: border-box; }
@@ -41,7 +41,7 @@
   <main>
     <header>
       <p class="eyebrow">Hypernovelty Open Lab / Agent Run Receipt</p>
-      <h1>Synthetic Documentation Update</h1>
+      <h1>Synthetic Development Delta Receipt</h1>
       <div class="chips" aria-label="Receipt status">
         <span class="chip warn">Human gate: pending</span>
         <span class="chip neutral">Public action: no</span>
@@ -50,8 +50,8 @@
     </header>
 
     <dl class="meta-grid" aria-label="Receipt metadata">
-      <div class="meta-card"><dt>Receipt ID</dt><dd>arr-2026-001</dd></div>
-      <div class="meta-card"><dt>Date</dt><dd>2026-07-06</dd></div>
+      <div class="meta-card"><dt>Receipt ID</dt><dd>arr-dev-delta-2026-001</dd></div>
+      <div class="meta-card"><dt>Date</dt><dd>2026-07-08</dd></div>
       <div class="meta-card"><dt>Agent type</dt><dd>local coding agent</dd></div>
     </dl>
 
@@ -60,31 +60,46 @@
       <h2>Boundary and Status</h2>
       <div class="status-line">
         <p><span class="label">Human gate:</span> pending</p>
-        <p><span class="label">Approval note:</span> None recorded</p>
+        <p><span class="label">Approval note:</span> Public example is synthetic; maintainer should review before adapting to private workflows.</p>
         <p><span class="label">Public action taken:</span> no</p>
       </div>
       <h3>Boundaries</h3>
-      <ul class="check-list"><li>Local-only work; no publishing, deployment, account tools, or external API calls.</li><li>No secrets, credentials, private traces, or proprietary internals included.</li><li>Synthetic example content only.</li></ul>
+      <ul class="check-list"><li>Local-only example; no deployment, account action, paid API call, or outreach.</li><li>Synthetic changed paths and validation output only.</li><li>No secrets, credentials, private traces, or proprietary workspace details.</li></ul>
     </section>
 
     <section>
       <h2>Task Summary</h2>
-      <p>Created a small local documentation starter with a validator, renderer, tests, and synthetic example data.</p>
+      <p>Added a public-safe validator rule and documentation page for development-delta receipts.</p>
     </section>
 
     <section>
       <h2>Changed Files</h2>
-      <ul class="check-list"><li>README.md</li><li>schemas/agent-run-receipt.schema.json</li><li>scripts/validate_receipt.py</li><li>scripts/render_receipt_html.py</li><li>examples/agent-run-receipt.example.json</li><li>tests/test_validate_receipt.py</li><li>tests/test_render_receipt_html.py</li></ul>
+      <ul class="check-list"><li>scripts/validate_receipt.py</li><li>docs/development-delta-receipts.md</li><li>examples/development-delta-receipt.example.json</li><li>tests/test_validate_receipt.py</li></ul>
     </section>
 
     <section>
       <h2>Verification</h2>
-      <ul class="check-list"><li>python3 scripts/validate_receipt.py examples/agent-run-receipt.example.json</li><li>python3 scripts/render_receipt_html.py examples/agent-run-receipt.example.json examples/rendered/agent-run-receipt.example.html</li><li>python3 -m unittest discover -s tests</li></ul>
+      <ul class="check-list"><li>python3 scripts/validate_receipt.py examples/development-delta-receipt.example.json -&gt; PASS: receipt is valid</li><li>PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -&gt; OK</li></ul>
     </section>
 
     <section class="wide">
       <h2>Notes</h2>
-      <p>This example is synthetic and intended for local demonstration only.</p>
+      <p>This is a public-safe development-delta example for Agent Run Receipts. It is inspired by anti-slop gates but does not include private harness internals.</p>
+    </section>
+
+    <section class="wide development-delta">
+      <h2>Development Delta</h2>
+      <p><span class="label">Status:</span> development_delta</p>
+      <h3>Changed Artifacts</h3>
+      <ul class="check-list"><li>scripts/validate_receipt.py</li><li>docs/development-delta-receipts.md</li><li>examples/development-delta-receipt.example.json</li><li>tests/test_validate_receipt.py</li></ul>
+      <h3>Capability Delta</h3>
+      <p>Receipts can now optionally prove that an agent changed concrete artifacts, improved a capability, and produced observable validation evidence instead of only reporting that work ran.</p>
+      <h3>Validation Evidence</h3>
+      <ul class="check-list"><li>python3 scripts/validate_receipt.py examples/development-delta-receipt.example.json -&gt; PASS: receipt is valid</li><li>PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -&gt; OK</li></ul>
+      <h3>Next Blocker or Artifact</h3>
+      <p>Add richer examples or promote the standalone Anti-Slop Harness after maintainer naming and README review.</p>
+      <h3>Non-actions Preserved</h3>
+      <ul class="check-list"><li>no public deploy</li><li>no account action</li><li>no paid service</li><li>no outreach</li><li>no secrets</li></ul>
     </section>
 
     </div>

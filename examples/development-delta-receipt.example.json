@@ -1,0 +1,50 @@
+{
+  "receipt_id": "arr-dev-delta-2026-001",
+  "title": "Synthetic Development Delta Receipt",
+  "date": "2026-07-08",
+  "agent_type": "local coding agent",
+  "task_summary": "Added a public-safe validator rule and documentation page for development-delta receipts.",
+  "boundaries": [
+    "Local-only example; no deployment, account action, paid API call, or outreach.",
+    "Synthetic changed paths and validation output only.",
+    "No secrets, credentials, private traces, or proprietary workspace details."
+  ],
+  "changed_files": [
+    "scripts/validate_receipt.py",
+    "docs/development-delta-receipts.md",
+    "examples/development-delta-receipt.example.json",
+    "tests/test_validate_receipt.py"
+  ],
+  "verification": [
+    "python3 scripts/validate_receipt.py examples/development-delta-receipt.example.json -> PASS: receipt is valid",
+    "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -> OK"
+  ],
+  "development_delta": {
+    "status": "development_delta",
+    "changed_artifacts": [
+      "scripts/validate_receipt.py",
+      "docs/development-delta-receipts.md",
+      "examples/development-delta-receipt.example.json",
+      "tests/test_validate_receipt.py"
+    ],
+    "capability_delta": "Receipts can now optionally prove that an agent changed concrete artifacts, improved a capability, and produced observable validation evidence instead of only reporting that work ran.",
+    "validation_evidence": [
+      "python3 scripts/validate_receipt.py examples/development-delta-receipt.example.json -> PASS: receipt is valid",
+      "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -> OK"
+    ],
+    "next_blocker_or_artifact": "Add richer examples or promote the standalone Anti-Slop Harness after maintainer naming and README review.",
+    "non_actions_preserved": [
+      "no public deploy",
+      "no account action",
+      "no paid service",
+      "no outreach",
+      "no secrets"
+    ]
+  },
+  "human_gate": {
+    "status": "pending",
+    "approval_note": "Public example is synthetic; maintainer should review before adapting to private workflows."
+  },
+  "public_action_taken": false,
+  "notes": "This is a public-safe development-delta example for Agent Run Receipts. It is inspired by anti-slop gates but does not include private harness internals."
+}

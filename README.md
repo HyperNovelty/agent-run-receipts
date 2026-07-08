@@ -40,6 +40,8 @@ Open `START_HERE.html` for a simple local overview.
 
 Before sharing a receipt outside the trusted workspace, use `docs/publish-safety-reviewer-checklist.md`.
 
+For AI/coding-agent work that claims real progress, see `docs/development-delta-receipts.md` and validate `examples/development-delta-receipt.example.json`.
+
 ## Receipt Shape
 
 Receipts are JSON objects with these required fields:
@@ -57,6 +59,21 @@ Receipts are JSON objects with these required fields:
 - `notes`
 
 The `boundaries`, `changed_files`, and `verification` fields are arrays. `public_action_taken` is a boolean. If `public_action_taken` is `true`, validation fails unless `human_gate.status` is exactly `approved` and `human_gate.approval_note` is non-empty.
+
+## Optional Development Delta Extension
+
+Receipts may include `development_delta` when an agent or automation run claims progress. This extension asks for concrete changed artifacts, capability improvement, validation evidence, the next blocker/artifact, and non-actions preserved. It is designed to reject status-only claims like “cron ran” or “validator still OK.”
+
+See:
+
+- `docs/development-delta-receipts.md`
+- `examples/development-delta-receipt.example.json`
+
+Validate the example:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_receipt.py examples/development-delta-receipt.example.json
+```
 
 ## What This Repo Does Not Do
 

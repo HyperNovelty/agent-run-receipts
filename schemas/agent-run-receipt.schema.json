@@ -36,7 +36,42 @@
       "additionalProperties": true
     },
     "public_action_taken": { "type": "boolean" },
-    "notes": { "type": "string" }
+    "notes": { "type": "string" },
+    "development_delta": {
+      "type": "object",
+      "description": "Optional development-delta extension for agent work that claims concrete progress.",
+      "required": [
+        "changed_artifacts",
+        "capability_delta",
+        "validation_evidence",
+        "next_blocker_or_artifact",
+        "non_actions_preserved"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["development_delta", "blocked_with_evidence", "not_a_delta"]
+        },
+        "changed_artifacts": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "capability_delta": { "type": "string", "minLength": 10 },
+        "validation_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "next_blocker_or_artifact": { "type": "string", "minLength": 10 },
+        "non_actions_preserved": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      },
+      "additionalProperties": true
+    }
   }
 }
 

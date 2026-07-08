@@ -45,6 +45,44 @@ class ValidateReceiptTests(unittest.TestCase):
         receipt["verification"] = "python3 -m unittest"
         self.assertIn("verification must be an array", validate_receipt(receipt))
 
+    def test_development_delta_extension_passes(self):
+        receipt = valid_receipt()
+        receipt["development_delta"] = {
+            "status": "development_delta",
+            "changed_artifacts": ["scripts/validate_receipt.py", "docs/development-delta-receipts.md"],
+            "capability_delta": "Validator now checks a concrete development-delta extension when present.",
+            "validation_evidence": ["python3 -m unittest discover -s tests exit 0 OK"],
+            "next_blocker_or_artifact": "Add more synthetic examples after maintainer review.",
+            "non_actions_preserved": ["no deploy", "no account action", "no secrets"],
+        }
+        self.assertEqual(validate_receipt(receipt), [])
+
+    def test_development_delta_extension_rejects_status_only(self):
+        receipt = valid_receipt()
+        receipt["development_delta"] = {
+            "status": "development_delta",
+            "changed_artifacts": ["README.md"],
+            "capability_delta": "Status unchanged; validator still ok.",
+            "validation_evidence": ["python3 -m unittest discover -s tests exit 0 OK"],
+            "next_blocker_or_artifact": "No new artifact remains.",
+            "non_actions_preserved": ["no deploy"],
+        }
+        errors = validate_receipt(receipt)
+        self.assertTrue(any("status-only" in error for error in errors))
+
+    def test_development_delta_extension_requires_validation_result(self):
+        receipt = valid_receipt()
+        receipt["development_delta"] = {
+            "status": "development_delta",
+            "changed_artifacts": ["README.md"],
+            "capability_delta": "A concrete capability changed in a reviewable artifact.",
+            "validation_evidence": ["python3 -m unittest discover -s tests"],
+            "next_blocker_or_artifact": "Add more examples.",
+            "non_actions_preserved": ["no deploy"],
+        }
+        errors = validate_receipt(receipt)
+        self.assertTrue(any("observable result" in error for error in errors))
+
 
 if __name__ == "__main__":
     unittest.main()

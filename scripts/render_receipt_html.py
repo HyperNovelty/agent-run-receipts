@@ -28,6 +28,28 @@ def render_list(items: Any) -> str:
     return '<ul class="check-list">' + "".join(f"<li>{esc(item)}</li>" for item in items) + "</ul>"
 
 
+def render_development_delta(delta: Any) -> str:
+    if not isinstance(delta, dict):
+        return ""
+    status = delta.get("status", "not provided")
+    return f"""
+    <section class="wide development-delta">
+      <h2>Development Delta</h2>
+      <p><span class="label">Status:</span> {esc(status)}</p>
+      <h3>Changed Artifacts</h3>
+      {render_list(delta.get("changed_artifacts", []))}
+      <h3>Capability Delta</h3>
+      <p>{esc(delta.get("capability_delta", ""))}</p>
+      <h3>Validation Evidence</h3>
+      {render_list(delta.get("validation_evidence", []))}
+      <h3>Next Blocker or Artifact</h3>
+      <p>{esc(delta.get("next_blocker_or_artifact", ""))}</p>
+      <h3>Non-actions Preserved</h3>
+      {render_list(delta.get("non_actions_preserved", []))}
+    </section>
+"""
+
+
 def render_receipt(receipt: dict[str, Any]) -> str:
     human_gate = receipt.get("human_gate", {})
     if not isinstance(human_gate, dict):
@@ -124,6 +146,7 @@ def render_receipt(receipt: dict[str, Any]) -> str:
       <h2>Notes</h2>
       <p>{esc(receipt.get("notes", ""))}</p>
     </section>
+{render_development_delta(receipt.get("development_delta"))}
     </div>
     <footer>This receipt is a local synthetic review aid. It is not an approval, deployment record, audit attestation, or permission to publish.</footer>
   </main>
